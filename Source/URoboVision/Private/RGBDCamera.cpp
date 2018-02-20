@@ -452,7 +452,7 @@ void ARGBDCamera::GenerateColors(const uint32_t NumberOfColors)
 	const float StepVal = (1.0f - MinVal) / std::max(1.0f, ValCount - 1.0f);
 
 	ObjectColors.Reserve(SatCount * ValCount * HueCount);
-	OUT_INFO(TEXT("Generating %d colors."), SatCount * ValCount * HueCount);
+	//OUT_INFO(TEXT("Generating %d colors."), SatCount * ValCount * HueCount);
 
 	FLinearColor HSVColor;
 	for(uint32_t s = 0; s < SatCount; ++s)
@@ -465,7 +465,7 @@ void ARGBDCamera::GenerateColors(const uint32_t NumberOfColors)
 			{
 				HSVColor.R = ((h * ShiftHue) % MaxHue) * StepHue;
 				ObjectColors.Add(HSVColor.HSVToLinearRGB().ToFColor(false));
-				OUT_INFO(TEXT("Added color %d: %d %d %d"), ObjectColors.Num(), ObjectColors.Last().R, ObjectColors.Last().G, ObjectColors.Last().B);
+				//OUT_INFO(TEXT("Added color %d: %d %d %d"), ObjectColors.Num(), ObjectColors.Last().R, ObjectColors.Last().G, ObjectColors.Last().B);
 			}
 		}
 	}
@@ -532,7 +532,7 @@ bool ARGBDCamera::ColorAllObjects()
 		OUT_INFO(TEXT("Actor with name: %s."), *ActorName);
 	}
   
-	OUT_INFO(TEXT("Found %d Actors."), NumberOfActors);
+	//OUT_INFO(TEXT("Found %d Actors."), NumberOfActors);
 	GenerateColors(NumberOfActors * 2);
 
 	for(TActorIterator<AActor> ActItr(GetWorld()); ActItr; ++ActItr)
@@ -542,12 +542,12 @@ bool ARGBDCamera::ColorAllObjects()
 		{
 			check(ColorsUsed < (uint32)ObjectColors.Num());
 			ObjectToColor.Add(ActorName, ColorsUsed);
-			OUT_INFO(TEXT("Adding color %d for object %s."), ColorsUsed, *ActorName);
+			//OUT_INFO(TEXT("Adding color %d for object %s."), ColorsUsed, *ActorName);
 
 			++ColorsUsed;
 		}
 
-		OUT_INFO(TEXT("Coloring object %s."), *ActorName);
+		//OUT_INFO(TEXT("Coloring object %s."), *ActorName);
 		ColorObject(*ActItr, ActorName);
 	}
 	return true;
