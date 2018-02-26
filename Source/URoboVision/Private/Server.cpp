@@ -110,9 +110,9 @@ void TCPServer::ServerLoop()
       break;
     }
 
-    MEASURE_TIME("Transmitting data");
+    //MEASURE_TIME("Transmitting data");
     int32 BytesSent = 0;
-    OUT_INFO(TEXT("sending images."));
+    //OUT_INFO(TEXT("sending images."));
 
     // Send data to client
     FDateTime Now = FDateTime::UtcNow();

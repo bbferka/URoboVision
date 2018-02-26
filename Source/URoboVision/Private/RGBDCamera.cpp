@@ -37,10 +37,13 @@ ARGBDCamera::ARGBDCamera() /*: ACameraActor(), Width(960), Height(540), Framerat
 	PrimaryActorTick.bCanEverTick = true;
 
 	// Default vison camera values
-	Width = 960;
-	Height = 540;
-	Framerate = 1.f;
-	FieldOfView = 90.f;
+	//Width = 960;
+	//Height = 540;
+	//Kinect HiRes
+	Width = 640;
+	Height = 480;
+	Framerate = 2.f;
+	FieldOfView = 60.f;
 	FrameTime = 1.0f / Framerate;
 	TimePassed = 0.f;
 	ColorsUsed = 0;
